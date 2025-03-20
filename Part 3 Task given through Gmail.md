@@ -587,6 +587,31 @@ Connect the board to the computer as described in the datasheet (e.g., using USB
 
 Done 👍
 
+---
+
+**Tasks which are done here-**
+
+4. Follow the provided Makefile (https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/Makefile) for building and flashing the Verilog code:
+
+    Run 'make clean' to clear any previous builds
+
+    Run 'make build' to compile the design
+
+    Run 'sudo make flash' to program the FPGA board
+
+5. Observe the behavior of the RGB LED on the board to confirm successful programming.
+
+--
+
+Run 'make clean' to clear any previous builds
+![image](https://github.com/user-attachments/assets/5e682d10-6175-4d57-bd8c-dd7a8fbd3b63)
+
+Run 'make build' to compile the design
+![VirtualBox_FPGA_20_03_2025_19_03_23](https://github.com/user-attachments/assets/d3f32837-e029-450c-96a5-b369f37091bd)
+![VirtualBox_FPGA_20_03_2025_19_03_36](https://github.com/user-attachments/assets/fa6e4ad7-2b6c-481c-b4a8-c623c84de699)
+
+
+
 
 
 
