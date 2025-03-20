@@ -615,9 +615,148 @@ Run 'sudo make flash' to program the FPGA board
 ![image](https://github.com/user-attachments/assets/9d3cd0e2-3b62-4d5b-b884-6dca9f78fec4)
 
 The process was successful! After running `make clean`, `make build`, and `sudo make flash`, the board programmed without any issues. All the LEDs—red, green, and blue—turned on perfectly. Everything is working just as expected!
+
 ---
 
+## Step 4: Final Documentation
 
+**Tasks which are done here-**
+
+4. Compile all observations, explanations, and steps into a comprehensive report.
+
+    Include:
+
+    Summary of the Verilog code functionality
+
+    Pin mapping details from the PCF file
+
+    Integration steps and observations while working with the FPGA Mini board
+
+    Challenges faced and solutions implemented
+
+--
+
+### Comprehensive Report on the RGB LED Controller Project Using the VSDSquadron FPGA Mini Board
+
+---
+
+#### 1. Objective
+
+The objective of this project was to understand and implement a basic Verilog design that interfaces with RGB LEDs on the VSDSquadron FPGA Mini board. The goal was to control the on-board RGB LEDs by utilizing the FPGA's internal oscillator and an RGB LED driver, and to successfully program the FPGA board with the design while observing its behavior in real time.
+
+---
+
+#### 2. Summary of the Verilog Code Functionality
+
+The core Verilog code is contained in a module named `top`. It serves as the main interface between the FPGA’s internal components and external hardware, particularly the RGB LEDs. The module performs the following functions:
+
+##### 2.1 Module Ports
+- `led_red` (Output): Drives the red channel of the RGB LED.
+- `led_green` (Output): Drives the green channel of the RGB LED.
+- `led_blue` (Output): Drives the blue channel of the RGB LED.
+- `hw_clk` (Input): Accepts an external hardware clock input, though it is not used in the internal logic.
+- `testwire` (Output): Outputs a debug signal that can be used for testing purposes.
+
+##### 2.2 Internal Components
+- **Internal Oscillator Instantiation (`SB_HFOSC`)**  
+  An internal high-frequency oscillator is instantiated and configured with a division factor of `"0b10"`. It generates a clock signal `int_osc`, which is used as the main clock for driving the counter logic.
+
+- **Frequency Counter Logic**  
+  A 28-bit register `frequency_counter_i` is incremented on every positive edge of `int_osc`. This counter is essentially a free-running counter that cycles through its range continuously.
+
+- **Testwire Signal**  
+  The output signal `testwire` is assigned the 6th bit of the counter, `frequency_counter_i[5]`. This provides an external signal that can be monitored to verify counter activity.
+
+- **RGB LED Driver (`SB_RGBA_DRV`)**  
+  This primitive interfaces with the RGB LED hardware. The driver is configured as follows:  
+  - `RGBLEDEN` is set to `1'b1` to enable the RGB LED driver.  
+  - `RGB0PWM` (Red) is set to `1'b0` (OFF).  
+  - `RGB1PWM` (Green) is set to `1'b0` (OFF).  
+  - `RGB2PWM` (Blue) is set to `1'b1` (ON).  
+  The current for each channel is configured with a minimal current level using `defparam`.
+
+---
+
+#### 3. Pin Mapping Details from the PCF File
+
+The Pin Constraint File (PCF) maps logical signals in the Verilog design to physical pins on the FPGA package. The mappings are as follows:
+
+| Signal     | Pin Number | Purpose and Mapping Details           |
+|------------|------------|---------------------------------------|
+| `led_red`   | 39         | Connected to the red channel (RGB0). |
+| `led_green` | 41         | Connected to the green channel (RGB1). |
+| `led_blue`  | 40         | Connected to the blue channel (RGB2). |
+| `hw_clk`    | 20         | External clock input. Not used in this design. |
+| `testwire`  | 17         | Exposed for testing and debugging purposes. |
+
+##### Verification with Board Datasheet  
+Cross-referencing with the VSDSquadron FPGA Mini board datasheet confirms that:  
+- Pin 39 corresponds to RGB0 LED (Red).  
+- Pin 40 corresponds to RGB2 LED (Blue).  
+- Pin 41 corresponds to RGB1 LED (Green).  
+- Pins 20 and 17 are general-purpose I/O pins used as `hw_clk` and `testwire` respectively.
+
+---
+
+#### 4. Integration Steps and Observations
+
+##### 4.1 Tools Installed
+- `yosys` for Verilog synthesis  
+- `nextpnr-ice40` for place-and-route  
+- `icetime` for timing analysis  
+- `icepack` for bitstream generation  
+- `iceprog` for flashing the FPGA board  
+- `picocom` for serial terminal communication (optional)
+
+##### 4.2 Build and Flash Process
+1. Cleaned the workspace to remove previous build artifacts:  
+   ```
+   make clean
+   ```
+2. Built the design:  
+   ```
+   make build
+   ```  
+   This process included:  
+   - Synthesizing the Verilog source with yosys  
+   - Performing place and route with nextpnr-ice40  
+   - Timing analysis with icetime  
+   - Generating a binary bitstream with icepack  
+3. Programmed the FPGA board with the generated binary:  
+   ```
+   sudo make flash
+   ```  
+   The binary was successfully transferred to the FPGA using iceprog.
+
+##### 4.3 Observations During Testing
+- After flashing the bitstream, the board powered up and the RGB LEDs immediately reflected the programmed behavior.  
+- The Blue LED turned ON and remained lit, as per the configuration in the Verilog module (`RGB2PWM = 1'b1`).  
+- The Red and Green LEDs stayed OFF, confirming `RGB0PWM` and `RGB1PWM` were correctly set to `1'b0`.  
+- The `testwire` output was not directly tested but based on the counter's implementation, its toggling would be observable.
+
+---
+
+#### 5. Challenges Faced and Solutions Implemented
+
+| Challenge                                                                                 | Solution                                                           |
+|-------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| The virtual machine did not detect the USB interface for programming the FPGA board.      | Reinstalled the software. Verified device permissions and reconnected the FPGA. |
+| Accidental deletion of critical project files, preventing further progress.               | Created the virtual machine again. |
+
+---
+
+#### 6. Conclusion
+
+This project successfully demonstrated the process of designing, building, and flashing a simple RGB LED controller onto the VSDSquadron FPGA Mini board. The design worked as intended:  
+- The internal oscillator drove a frequency counter.  
+- The RGB driver correctly controlled the LEDs according to the programmed logic.  
+- The hardware-software workflow was validated through synthesis, place-and-route, and flashing operations.
+
+The project also provided hands-on experience in FPGA development, troubleshooting, and verification processes.
+
+---
+
+#THE END
 
 
 
