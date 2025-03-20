@@ -313,7 +313,7 @@ The `top` module controls an RGB LED on an FPGA development board. It demonstrat
 
 ---
 
-## Summary
+### Summary
 This module uses an internal oscillator to generate a clock signal that increments a frequency counter. The counter provides a test output signal (`testwire`). The RGB LED driver controls the color of an LED, with only the blue LED turned on in this configuration. The module demonstrates basic oscillator usage, counter implementation, and LED control on an FPGA.
 
 ---
@@ -364,6 +364,228 @@ set_io  testwire   17
 
 ### Summary
 This PCF file assigns specific FPGA pins to the corresponding ports of the `top` module. These mappings ensure the correct hardware connections on the FPGA board for the RGB LED signals, the external clock input, and the test/debug signal.
+
+**Tasks which are done here-**
+
+3. Cross-reference the pin assignments with the VSDSquadron FPGA Mini board datasheet to verify the correctness of the assignments.
+
+---
+
+### Cross-Referencing Pin Assignments with the VSDSquadron FPGA Mini Board Pinout
+
+Based on the provided pinout information, we can cross-reference the PCF file assignments for verification.
+
+![image](https://github.com/user-attachments/assets/1b741454-0fb4-4d89-9dc8-0c032849e58f)
+
+#### Provided PCF File:
+```
+set_io  led_red    39
+set_io  led_blue   40
+set_io  led_green  41
+set_io  hw_clk     20
+set_io  testwire   17
+```
+
+#### Step 1: Verify RGB LED Pins
+From the datasheet you shared:
+
+| Pin Number | Signal Name | Description |
+|------------|-------------|-------------|
+| 39         | RGB0        | LED Red     |
+| 40         | RGB1        | LED Green   |
+| 41         | RGB2        | LED Blue    |
+
+✅ **Correct Mapping:**
+- `led_red` → 39 → RGB0 (Red)
+- `led_green` → 40 → RGB1 (Green)
+- `led_blue` → 41 → RGB2 (Blue)
+
+---
+
+#### Step 2: Verify `hw_clk` and `testwire` Pins
+From the datasheet:
+
+| Pin Number | Signal Name | Description          |
+|------------|-------------|----------------------|
+| 20         | IOB 25b     | DPIO 1 (Bank 1)      |
+| 17         | IOB 33b     | SPI SI DPIO/CONFIG   |
+
+These are general-purpose I/O pins:
+- Pin 20 can be used for `hw_clk` (External Clock Input) ✅
+- Pin 17 can be used for `testwire` (Test output signal) ✅
+
+---
+
+### Final Verification Table
+
+| Signal Name | PCF Pin | FPGA Pin Description | Correct? |
+|-------------|---------|----------------------|----------|
+| `led_red`   | 39      | RGB0 (Red LED)       | ✅        |
+| `led_blue`  | 40      | RGB1 (Green LED)     | ✅        |
+| `led_green` | 41      | RGB2 (Blue LED)      | ✅        |
+| `hw_clk`    | 20      | IOB 25b (DPIO 1)     | ✅        |
+| `testwire`  | 17      | IOB 33b (SPI SI)     | ✅        |
+
+---
+
+### Conclusion
+The PCF file pin assignments are consistent with the VSDSquadron FPGA Mini Board's pinout.  
+
+---
+
+**Tasks which are done here-**
+
+4. Document the pin mapping and explain the significance of each connection in context with the Verilog code and board hardware.
+
+--
+
+## Pin Mapping Documentation and Explanation
+
+This document outlines the pin assignments for the `top` module implemented on the VSDSquadron FPGA Mini board. Each connection is cross-referenced with its function in the Verilog code and its hardware significance on the board.
+
+---
+
+### Pin Mapping Table
+
+| Signal Name | FPGA Pin Number | Board Connection        | Function in Verilog Code |
+|-------------|-----------------|-------------------------|--------------------------|
+| `led_red`   | 39              | RGB0 LED (Red)          | Output from `SB_RGBA_DRV` RGB0 to control the red LED. |
+| `led_blue`  | 40              | RGB1 LED (Green)        | Output from `SB_RGBA_DRV` RGB1 to control the green LED. |
+| `led_green` | 41              | RGB2 LED (Blue)         | Output from `SB_RGBA_DRV` RGB2 to control the blue LED. |
+| `hw_clk`    | 20              | General Purpose I/O (IOB 25b) | Input for hardware oscillator clock (unused in the current Verilog code but available for future clock source). |
+| `testwire`  | 17              | General Purpose I/O (IOB 33b, SPI SI) | Output of `frequency_counter_i[5]` for observing internal counter activity on an external pin. |
+
+---
+
+### Explanation of Each Connection
+
+#### `led_red` → Pin 39 (RGB0)
+- **Purpose**: Controls the Red LED on the RGB LED driver.
+- **Verilog Role**: Connected to `RGB0` in the `SB_RGBA_DRV` instance.
+- **Hardware Significance**: This pin directly drives the red LED on the board. In the provided Verilog code, the red LED is always off (`RGB0PWM = 1'b0`).
+
+#### `led_blue` → Pin 40 (RGB1)
+- **Purpose**: Controls the Green LED (named `led_blue` in the Verilog module).
+- **Verilog Role**: Connected to `RGB1` in the `SB_RGBA_DRV` instance.
+- **Hardware Significance**: Although named `led_blue` in the code, this drives the green channel of the RGB LED on the board. The PWM signal is set to `1'b0`, keeping it off in this implementation.
+
+#### `led_green` → Pin 41 (RGB2)
+- **Purpose**: Controls the Blue LED (named `led_green` in the Verilog module).
+- **Verilog Role**: Connected to `RGB2` in the `SB_RGBA_DRV` instance.
+- **Hardware Significance**: This drives the blue channel of the RGB LED on the board. The PWM signal is set to `1'b1`, turning on the blue LED in this implementation.
+
+#### `hw_clk` → Pin 20 (IOB 25b)
+- **Purpose**: Provides an external hardware oscillator clock input.
+- **Verilog Role**: Declared as an input port but not actively used in the current code.
+- **Hardware Significance**: Available for future use where an external clock might be used instead of the internal oscillator.
+
+#### `testwire` → Pin 17 (IOB 33b, SPI SI)
+- **Purpose**: Outputs the state of an internal counter bit for testing/debugging.
+- **Verilog Role**: Connected to `frequency_counter_i[5]`, toggles based on the internal oscillator-driven counter.
+- **Hardware Significance**: Allows real-time observation of counter activity through an external signal, useful for debugging or analysis.
+
+---
+
+### Summary
+
+This pin mapping ensures the correct physical connections between the FPGA I/O pins and the onboard RGB LED and other signals. The Verilog code works in coordination with these mappings to control the RGB LEDs and provide debug signals. Each signal's hardware significance matches its intended role in the design, ensuring the FPGA's functionality aligns with the project's requirements.
+
+---
+
+## Step 3: Integrating with the VSDSquadron FPGA Mini Board
+
+**Tasks which are done here-**
+
+1. Review the VSDSquadron FPGA Mini board datasheet to understand its features and pinout.
+
+2. Use the datasheet to correlate the physical board connections with the PCF file and Verilog code.
+
+
+### 1. Review of the VSDSquadron FPGA Mini Board Datasheet
+
+The VSDSquadron FPGA Mini board is a compact development platform designed for learning and experimenting with FPGA design. Here's a summary of its key features and pinout based on the datasheet:
+
+#### Key Features:
+- **FPGA Chip**: Lattice iCE40UP5K
+- **Power Supply**: 3.3V for I/O and core voltage.
+- **Onboard RGB LEDs**: Connected directly to dedicated FPGA pins.
+- **Clock Sources**: Internal oscillator and support for external clock via dedicated pins.
+- **GPIO**: Multiple configurable general-purpose I/O pins.
+- **Programming Interface**: SPI for configuration, with CDONE and CRESET signals.
+- **Differential Pairs**: Several I/O pairs support differential signaling.
+- **Ground (GND)** and **Power (VCC)** pins are provided.
+
+#### Pinout Highlights (relevant pins):
+| Pin Number | Pin Name | Description                         |
+|------------|----------|-------------------------------------|
+| 39         | RGB0     | Connected to Red LED on the board   |
+| 40         | RGB1     | Connected to Green LED on the board |
+| 41         | RGB2     | Connected to Blue LED on the board  |
+| 20         | IOB 25b  | General-purpose I/O (DPIO 1)        |
+| 17         | IOB 33b  | General-purpose I/O (SPI SI/DPIO)   |
+
+---
+
+### 2. Correlating the Datasheet with the PCF File and Verilog Code
+
+#### PCF File (Physical Constraints File)
+```
+set_io  led_red    39
+set_io  led_blue   40
+set_io  led_green  41
+set_io  hw_clk     20
+set_io  testwire   17
+```
+
+#### Cross-Reference Analysis
+
+| Verilog Port | PCF Pin Assignment | Datasheet Pin Function       | Description |
+|--------------|--------------------|------------------------------|-------------|
+| `led_red`    | 39                 | RGB0 → Red LED               | Drives the red channel of the onboard RGB LED. |
+| `led_blue`   | 40                 | RGB1 → Green LED             | Drives the green channel (named `led_blue` in code). |
+| `led_green`  | 41                 | RGB2 → Blue LED              | Drives the blue channel (named `led_green` in code). |
+| `hw_clk`     | 20                 | IOB 25b → General I/O        | Accepts an external clock source. Not actively used in the Verilog code. |
+| `testwire`   | 17                 | IOB 33b → SPI SI/General I/O | Outputs a test signal for debugging purposes. |
+
+---
+
+### How the Verilog Code Aligns with the Pinout
+
+- **LED Control (RGB0, RGB1, RGB2)**:
+  - The `SB_RGBA_DRV` primitive in the Verilog code drives the RGB LEDs.
+  - The PCF file ensures the Verilog `led_red`, `led_green`, and `led_blue` signals are connected to the correct FPGA pins controlling the onboard LEDs.
+
+- **Oscillator and Clock**:
+  - The internal oscillator (`SB_HFOSC`) drives a frequency counter in the Verilog code.
+  - Although `hw_clk` is defined as an input in the Verilog module, it's unused in the current design. The PCF file still maps it to pin 20 for future use.
+
+- **Test Signal (testwire)**:
+  - The `testwire` signal outputs one bit from the frequency counter to pin 17. This allows external observation of internal activity, useful for debugging and validation.
+
+---
+
+### Summary
+
+By reviewing the VSDSquadron FPGA Mini board datasheet and comparing it with the PCF file and Verilog code:
+- We confirm the RGB LEDs are correctly mapped to their respective pins.
+- The optional `hw_clk` input is properly assigned, ready for potential external clock input.
+- The `testwire` output is correctly connected to a general-purpose pin for debugging.
+
+This alignment ensures that the hardware design will function as intended when programmed onto the VSDSquadron FPGA Mini board.
+
+---
+
+**Tasks which are done here-**
+
+Connect the board to the computer as described in the datasheet (e.g., using USB-C and ensuring FTDI connection).
+
+--
+
+![image](https://github.com/user-attachments/assets/87b2720f-9cb4-4fa9-b7e2-03c4ff8fe300)
+
+![WhatsApp Image 2025-03-20 at 18 55 10_4e2ad4d2](https://github.com/user-attachments/assets/65f7f267-ff30-4945-bc00-fa34875ca67b)
+
+Done 👍
 
 
 
