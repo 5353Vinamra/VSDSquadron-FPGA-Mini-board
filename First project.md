@@ -45,3 +45,24 @@ shown
 To confirm if the board is connected to the USB, type the ‘lsusb‘ command in the terminal.
 You should see a line stating ”Future Technology Devices International,” as shown
 
+![VirtualBox_FPGA_20_03_2025_16_26_49](https://github.com/user-attachments/assets/47d3752b-c262-4967-a390-c72f450d0a35)
+
+To program the VSDSquadron FPGA Mini (FM) board, follow these steps:
+– Run the following command to clean up previous builds. Refer to Fig.
+
+```bash
+make clean
+```
+![VirtualBox_FPGA_20_03_2025_16_28_54](https://github.com/user-attachments/assets/1f6b0875-1a67-4d1e-9a35-202d81be5e85)
+
+Build the binaries for the FPGA board using below command. Below Fig shows the output
+screen after ‘make build‘ command:
+
+```bash
+make build
+```
+
+![VirtualBox_FPGA_20_03_2025_16_30_50](https://github.com/user-attachments/assets/488c3add-1d6f-49fa-88ba-6463f59051c2)
+
+
+
