@@ -44,6 +44,18 @@ Click on the ”Finish” button as shown.
 
 ![image](https://github.com/user-attachments/assets/91d2068c-6a2c-4391-b643-8d8d3aa4acd7)
 
+Once the virtual machine is created, select it from the list of available virtual machines in the
+VirtualBox Manager and click on the ”Start” button to launch it, as shown. It would
+take about 2-3 minutes to start the virtual machine
+
+![image](https://github.com/user-attachments/assets/3d1b95a6-d056-4ed3-89ce-acf3f52cf13a)
+
+The VM will start and prompt for password as shown. Enter the password as ”vsdiat”
+and click on ”Log In” button
+
+![image](https://github.com/user-attachments/assets/a68e9830-d6dc-490d-a33e-6de625ff1ae9)
+
+Now you have done the setup of the Virtual Machine for programming in VSDSquadron FPGA mini.
 
 
 
