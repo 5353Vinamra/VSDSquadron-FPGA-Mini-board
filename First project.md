@@ -48,7 +48,7 @@ You should see a line stating ”Future Technology Devices International,” as 
 ![VirtualBox_FPGA_20_03_2025_16_26_49](https://github.com/user-attachments/assets/47d3752b-c262-4967-a390-c72f450d0a35)
 
 To program the VSDSquadron FPGA Mini (FM) board, follow these steps:
-– Run the following command to clean up previous builds. Refer to Fig.
+Run the following command to clean up previous builds. Refer to Fig.
 
 ```bash
 make clean
@@ -63,6 +63,46 @@ make build
 ```
 
 ![VirtualBox_FPGA_20_03_2025_16_30_50](https://github.com/user-attachments/assets/488c3add-1d6f-49fa-88ba-6463f59051c2)
+
+Flash the code to the external SRAM with the following command:
+
+```bash
+ sudo make flash
+```
+
+After executing the above command, the screen will look as shown
+
+![VirtualBox_FPGA_20_03_2025_16_34_11](https://github.com/user-attachments/assets/377725d3-3e70-4c61-bda8-bd264aec99c4)
+
+Enter the password "vsdiat"
+
+Note: while typing the password you will not see the  letters you type so don't worry just type "vsdiat" and press enter
+
+Now if you get error as shown below then probably the board got disconnected.
+
+![VirtualBox_FPGA_20_03_2025_16_35_57](https://github.com/user-attachments/assets/2f608b07-8c47-4fcd-94bd-c04414db1b59)
+
+Try repeating the step as shown.
+
+– On the Virtual Machine, click on ”Devices → USB → FTDI Single RS232-HS [J900]” as
+shown
+
+![image](https://github.com/user-attachments/assets/2624f754-49f7-42eb-85dd-471c2ae114f0)
+
+Now write the command again
+
+```bash
+sudo make flash
+```
+
+It will take around 2.5 so be calm. and after the output will be this as shown
+
+![VirtualBox_FPGA_20_03_2025_16_41_20](https://github.com/user-attachments/assets/eb964c53-8b7a-4969-960c-7f81b55cfca4)
+
+Once the code is successfully flashed, you will see the RGB lights on the FPGA board
+blinking as shown
+
+https://github.com/user-attachments/assets/cd765293-1298-4957-9ab9-779548e298f4
 
 
 
