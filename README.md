@@ -1,9 +1,5 @@
 # VSDSquadron-FPGA-Mini-board
 ## How to setup
-<details>
-  <summary>
-Expand or Collapse
-  </summary>
 
 ### Installation and Settings
 This section provides information about the software and hardware settings required to run ”RGB
