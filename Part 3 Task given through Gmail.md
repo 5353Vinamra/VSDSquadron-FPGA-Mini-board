@@ -1,5 +1,16 @@
 # Tasks
+
+<details>
+  <summary>
+Expand or Collapse
+  </summary>
+   
 **Step 1: Understanding the Verilog Code**
+
+<details>
+  <summary>
+Expand or Collapse
+  </summary>
 
 **1. Access the Verilog code from the provided link: https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/top.v**
 
@@ -27,7 +38,14 @@
 
    Functionality of the RGB LED driver and its relationship to the outputs
 
+   </details>
+
 **Step 2: Creating the PCF File**
+
+<details>
+  <summary>
+Expand or Collapse
+  </summary>
 
 **1. Access the PCF file from the provided link: https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/VSDSquadronFM.pcf**
 
@@ -47,8 +65,15 @@
 
 **Document the pin mapping and explain the significance of each connection in context with the Verilog code and board hardware.**
 
+</details>
+
 **Step 3: Integrating with the VSDSquadron FPGA Mini Board**
 
+<details>
+  <summary>
+Expand or Collapse
+  </summary>
+   
 **Review the VSDSquadron FPGA Mini board datasheet to understand its features and pinout.**
 
 **Use the datasheet to correlate the physical board connections with the PCF file and Verilog code.**
@@ -65,7 +90,14 @@ Run 'sudo make flash' to program the FPGA board
 
 **Observe the behavior of the RGB LED on the board to confirm successful programming.**
 
+</details>
+
 **Step 4: Final Documentation**
+
+<details>
+  <summary>
+Expand or Collapse
+  </summary>
 
 **Compile all observations, explanations, and steps into a comprehensive report.**
 
@@ -82,3 +114,10 @@ Challenges faced and solutions implemented
 **Submit the final document along with the working Verilog and PCF files.**
 
 **Document all of these in a GitHub repo.**
+
+</details>
+</details>
+
+# Implementation
+
+
