@@ -121,6 +121,11 @@ Challenges faced and solutions implemented
 
 ## Step 1: Understanding the Verilog Code
 
+<details>
+  <summary>
+Expand or Collapse
+  </summary>
+  
 **Tasks which are done here-** 
 
 1. Access the Verilog code from the provided link: https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/top.v
@@ -318,8 +323,15 @@ This module uses an internal oscillator to generate a clock signal that incremen
 
 ---
 
+</details>
+
 ## Step 2: Creating the PCF File
 
+<details>
+  <summary>
+Expand or Collapse
+  </summary>
+  
 **Tasks which are done here-**
 
 1. Access the PCF file from the provided link: https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/VSDSquadronFM.pcf
@@ -492,8 +504,15 @@ This pin mapping ensures the correct physical connections between the FPGA I/O p
 
 ---
 
+</details>
+
 ## Step 3: Integrating with the VSDSquadron FPGA Mini Board
 
+<details>
+  <summary>
+Expand or Collapse
+  </summary>
+  
 **Tasks which are done here-**
 
 1. Review the VSDSquadron FPGA Mini board datasheet to understand its features and pinout.
@@ -618,8 +637,15 @@ The process was successful! After running `make clean`, `make build`, and `sudo 
 
 ---
 
+</details>
+
 ## Step 4: Final Documentation
 
+<details>
+  <summary>
+Expand or Collapse
+  </summary>
+  
 **Tasks which are done here-**
 
 4. Compile all observations, explanations, and steps into a comprehensive report.
@@ -755,6 +781,8 @@ This project successfully demonstrated the process of designing, building, and f
 The project also provided hands-on experience in FPGA development, troubleshooting, and verification processes.
 
 ---
+
+</details>
 
 #THE END
 
