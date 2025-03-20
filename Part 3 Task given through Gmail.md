@@ -119,6 +119,11 @@ Challenges faced and solutions implemented
 
 # **Implementation**
 
+<details>
+  <summary>
+Expand or Collapse
+  </summary>
+  
 ## Step 1: Understanding the Verilog Code
 
 <details>
@@ -782,9 +787,11 @@ The project also provided hands-on experience in FPGA development, troubleshooti
 
 ---
 
+# THE END
+
+</details>
 </details>
 
-# THE END
 
 
 
