@@ -99,11 +99,10 @@ Run 'sudo make flash' to program the FPGA board
 Expand or Collapse
   </summary>
 
-**Compile all observations, explanations, and steps into a comprehensive report.**
+**Compile all observations, explanations, and steps into a comprehensive report.
+Include:**
 
-**Include:**
-
-Summary of the Verilog code functionality
+**Summary of the Verilog code functionality**
 
 Pin mapping details from the PCF file
 
@@ -117,7 +116,4 @@ Challenges faced and solutions implemented
 
 </details>
 </details>
-
-# Implementation
-
 
