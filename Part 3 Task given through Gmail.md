@@ -121,7 +121,7 @@ Challenges faced and solutions implemented
 
 ## Step 1: Understanding the Verilog Code
 
-**Task which are done here-** 
+**Tasks which are done here-** 
 
 1. Access the Verilog code from the provided link: https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/top.v
 
@@ -166,7 +166,7 @@ module top (
 
 ---
 
-**Task which are done here-** 
+**Tasks which are done here-** 
 
 3. Analyze the internal components:
 
@@ -261,7 +261,7 @@ defparam RGB_DRIVER.RGB2_CURRENT = "0b000001"; // Blue LED current setting
 - The **RGB LED driver** controls the LED outputs, currently turning on only the blue LED with predefined current settings.
 ---
 
-**Task which are done here-** 
+**Tasks which are done here-** 
 
 4. Create a brief documentation explaining the functionality of the Verilog code, including:
 
@@ -315,6 +315,58 @@ The `top` module controls an RGB LED on an FPGA development board. It demonstrat
 
 ## Summary
 This module uses an internal oscillator to generate a clock signal that increments a frequency counter. The counter provides a test output signal (`testwire`). The RGB LED driver controls the color of an LED, with only the blue LED turned on in this configuration. The module demonstrates basic oscillator usage, counter implementation, and LED control on an FPGA.
+
+---
+
+## Step 2: Creating the PCF File
+
+**Tasks which are done here-**
+
+1. Access the PCF file from the provided link: https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/VSDSquadronFM.pcf
+
+2. Understand the pin assignments from the PCF file:
+
+    led_red -> Pin 39
+
+    led_blue -> Pin 40
+
+    led_green -> Pin 41
+
+    hw_clk -> Pin 20
+
+    testwire -> Pin 17
+
+--
+
+## PCF File for `VSDSquadronFM.pcf`
+
+```
+set_io  led_red    39
+set_io  led_blue   40
+set_io  led_green  41
+set_io  hw_clk     20
+set_io  testwire   17
+```
+
+---
+
+## Pin Assignment Details
+
+| Signal Name | Pin Number | Description                                   |
+|-------------|------------|-----------------------------------------------|
+| `led_red`   | 39         | Connects to the Red LED output of the RGB driver. |
+| `led_blue`  | 40         | Connects to the Blue LED output of the RGB driver. |
+| `led_green` | 41         | Connects to the Green LED output of the RGB driver. |
+| `hw_clk`    | 20         | External hardware oscillator clock input.      |
+| `testwire`  | 17         | Debug/test signal output, showing the counter bit toggle. |
+
+---
+
+### Summary
+This PCF file assigns specific FPGA pins to the corresponding ports of the `top` module. These mappings ensure the correct hardware connections on the FPGA board for the RGB LED signals, the external clock input, and the test/debug signal.
+
+
+
 
 
 
