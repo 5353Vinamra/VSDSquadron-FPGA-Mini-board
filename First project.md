@@ -95,7 +95,7 @@ Now write the command again
 sudo make flash
 ```
 
-It will take around 2.5 so be calm. and after the output will be this as shown
+It will take around 2.5 minute so be calm. and after the output will be this as shown
 
 ![VirtualBox_FPGA_20_03_2025_16_41_20](https://github.com/user-attachments/assets/eb964c53-8b7a-4969-960c-7f81b55cfca4)
 
