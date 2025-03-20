@@ -610,8 +610,12 @@ Run 'make build' to compile the design
 ![VirtualBox_FPGA_20_03_2025_19_03_23](https://github.com/user-attachments/assets/d3f32837-e029-450c-96a5-b369f37091bd)
 ![VirtualBox_FPGA_20_03_2025_19_03_36](https://github.com/user-attachments/assets/fa6e4ad7-2b6c-481c-b4a8-c623c84de699)
 
+Run 'sudo make flash' to program the FPGA board
+![image](https://github.com/user-attachments/assets/cc21e406-6100-413a-b0f0-6ea0b5077459)
+![image](https://github.com/user-attachments/assets/9d3cd0e2-3b62-4d5b-b884-6dca9f78fec4)
 
-
+The process was successful! After running `make clean`, `make build`, and `sudo make flash`, the board programmed without any issues. All the LEDs—red, green, and blue—turned on perfectly. Everything is working just as expected!
+---
 
 
 
