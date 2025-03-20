@@ -102,7 +102,10 @@ It will take around 2.5 so be calm. and after the output will be this as shown
 Once the code is successfully flashed, you will see the RGB lights on the FPGA board
 blinking as shown
 
-https://github.com/user-attachments/assets/cd765293-1298-4957-9ab9-779548e298f4
+https://github.com/user-attachments/assets/5b652545-6f92-4a2a-ab69-ff5f9841f86c
+
+**And your first program is done**
+
 
 
 
