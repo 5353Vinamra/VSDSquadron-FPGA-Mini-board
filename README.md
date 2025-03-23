@@ -29,6 +29,7 @@ This repository contains RTL designs, simulations, and programming tasks perform
 | **Switches**     | 4 Push Buttons                    |
 | **Clock**        | 27 MHz Crystal Oscillator         |
 | **Programmer**   | Onboard USB to SPI/I2C Programmer |
+| **USB Type**     | 2.0                               |
 
 ---
 
@@ -66,9 +67,9 @@ VSDSquadron-FPGA-Mini-board/
 
 ---
 
-## 🖼️ Demo / Screenshots
+## 🖼️ Screenshots
 
-(Add photos of your board in action here! For example: LEDs blinking, switch inputs working, etc.)
+
 
 ---
 
@@ -80,7 +81,7 @@ This project is licensed under the MIT License.
 
 ## 🙌 Acknowledgements
 
-- [VSDOpen](https://www.vlsisystemdesign.com/) - For providing the FPGA board and learning materials
+- [VSDOpen](https://www.vlsisystemdesign.com/vsdsquadronfm/) - For providing the FPGA board and learning materials
 - VSDSquadron Community - For support and guidance
 
 ---
