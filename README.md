@@ -69,6 +69,12 @@ VSDSquadron-FPGA-Mini-board/
 
 ## 🖼️ Screenshots
 
+![WhatsApp Image 2025-03-23 at 10 41 11_f08d8dc3](https://github.com/user-attachments/assets/1ef5026e-0841-407c-968e-d748f16f7527)
+![WhatsApp Image 2025-03-23 at 10 41 11_c3433f80](https://github.com/user-attachments/assets/2841f83c-d220-4765-a10c-b7317b20fd96)
+![WhatsApp Image 2025-03-23 at 10 41 11_2e3564d1](https://github.com/user-attachments/assets/c406567a-d22d-40db-bf18-9c898fcf8ce8)
+![WhatsApp Image 2025-03-23 at 10 41 12_5d13b725](https://github.com/user-attachments/assets/e3532772-d5ca-4eed-ab9c-0ef7d78abc7f)
+![WhatsApp Image 2025-03-23 at 10 41 12_92249325](https://github.com/user-attachments/assets/f388b39b-afff-4801-82b6-3d1d95b13667)
+![WhatsApp Image 2025-03-23 at 10 41 13_442fba5c](https://github.com/user-attachments/assets/8501378c-e3e7-4687-ade7-b6513aa12aac)
 
 
 ---
