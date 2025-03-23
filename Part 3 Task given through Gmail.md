@@ -12,7 +12,7 @@ Expand or Collapse
 Expand or Collapse
   </summary>
 
-**1. Access the Verilog code from the provided link: https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/top.v**
+**1. Access the Verilog code from the provided link: [Verilog Code](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/blob/main/Necessary%20files%20for%20RGB%20blink/Verilog%20code%20for%20RGB%20Blink.v)**
 
 **2. Review the module declaration and understand the purpose of each input and output port:**
 
@@ -47,7 +47,7 @@ Expand or Collapse
 Expand or Collapse
   </summary>
 
-**1. Access the PCF file from the provided link: https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/VSDSquadronFM.pcf**
+**1. Access the PCF file from the provided link: [PCF File](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/blob/main/Necessary%20files%20for%20RGB%20blink/RGB%20Blink.pcf)**
 
 **Understand the pin assignments from the PCF file:**
 
@@ -80,7 +80,7 @@ Expand or Collapse
 
 **Connect the board to the computer as described in the datasheet (e.g., using USB-C and ensuring FTDI connection).**
 
-**Follow the provided Makefile (https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/Makefile) for building and flashing the Verilog code:**
+**Follow the provided [Makefile](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/blob/main/Necessary%20files%20for%20RGB%20blink/Makefile.md) for building and flashing the Verilog code:**
 
 Run 'make clean' to clear any previous builds
 
@@ -133,8 +133,7 @@ Expand or Collapse
   
 **Tasks which are done here-** 
 
-1. Access the Verilog code from the provided link: https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/top.v
-
+1. Access the Verilog code from the provided link: [Verilog Code](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/blob/main/Necessary%20files%20for%20RGB%20blink/Verilog%20code%20for%20RGB%20Blink.v)
 2. Review the module declaration and understand the purpose of each input and output port:
 
     led_red, led_blue, led_green (Output): Control the RGB LED
@@ -339,7 +338,7 @@ Expand or Collapse
   
 **Tasks which are done here-**
 
-1. Access the PCF file from the provided link: https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/VSDSquadronFM.pcf
+1. Access the PCF file from the provided link: [PCF File](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/blob/main/Necessary%20files%20for%20RGB%20blink/RGB%20Blink.pcf)
 
 2. Understand the pin assignments from the PCF file:
 
@@ -615,7 +614,7 @@ Done 👍
 
 **Tasks which are done here-**
 
-4. Follow the provided Makefile (https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/Makefile) for building and flashing the Verilog code:
+4. Follow the provided [Makefile](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/blob/main/Necessary%20files%20for%20RGB%20blink/Makefile.md) for building and flashing the Verilog code:
 
     Run 'make clean' to clear any previous builds
 
