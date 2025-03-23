@@ -10,12 +10,12 @@ Installation Instructions for Windows Users
 
 ![image](https://github.com/user-attachments/assets/75024056-c3bf-41cb-8e2d-1782bf0c70f3)
 
-Download VSDSquadron FPGA Mini (FM) Software (https://forgefunder.com/~kunal/vsdsquadron_fpga_mini.zip) Software on your laptop
+Download [VSDSquadron FPGA Mini (FM) Software](https://forgefunder.com/~kunal/vsdsquadron_fpga_mini.zip) Software on your laptop
 
 Unzip the downloaded file and follow the below instructions
 
 Download and install Oracle VirtualBox on your Windows computer if you haven’t already.
-You can download it from the official website (https://www.virtualbox.org/wiki/Downloads)
+You can download it from the [official website](https://www.virtualbox.org/wiki/Downloads)
 
 Launch VirtualBox and click on the ”New” button to create a new virtual machine. Fill up
 the details exactly as highlighted in RED as shown.
