@@ -87,7 +87,7 @@ This project is licensed under the MIT License.
 
 ## 🙌 Acknowledgements
 
-- [VSDOpen](https://www.vlsisystemdesign.com/vsdsquadronfm/) - For providing the FPGA board and learning materials
+- [https://www.vlsisystemdesign.com](https://www.vlsisystemdesign.com/vsdsquadronfm/) - For providing the FPGA board and learning materials
   
 ---
 
