@@ -272,7 +272,7 @@ defparam RGB_DRIVER.RGB2_CURRENT = "0b000001"; // Blue LED current setting
 Images and Video of only blue LED turning on
 ![WhatsApp Image 2025-03-24 at 11 41 32_85f9af53](https://github.com/user-attachments/assets/45f42615-c1e7-4638-930e-245be2cc7b9d)
 ![WhatsApp Image 2025-03-24 at 11 41 32_cd82dd56](https://github.com/user-attachments/assets/55fb1619-3d32-4f45-be36-ef5248b9cb93)
-
+https://github.com/user-attachments/assets/cfe2c084-bd51-46ff-9641-9e970bc932f0
 
 ---
 
