@@ -1,7 +1,7 @@
 # Steps:
 
 ## Study the Existing Code:
-Access the uart_loopback project from the [VSDSquadron_FM repository](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/tree/main/Task%202/uart_loopback).
+Access the uart_loopback project from the [VSDSquadron_FM repository](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/tree/main/Task%202/uart_loopback). 
 Analyze the Verilog code to understand the loopback logic.
 
 ---
