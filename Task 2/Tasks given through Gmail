@@ -1,0 +1,6 @@
+# Implementation
+Tasks which are done here:
+
+1. Study the Existing Code:
+  Access the uart_loopback project from the VSDSquadron_FM repository.
+  Analyze the Verilog code to understand the loopback logic.
