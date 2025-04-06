@@ -1,7 +1,7 @@
 # Steps:
 
 ## Study the Existing Code:
-  Access the uart_tx project from the VSDSquadron_FM repository.
+  Access the uart_tx project from the [VSDSquadron_FM repository](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/tree/main/Task%203/uart_tx).
   Examine the Verilog code to understand the transmission process.
 ## Design Documentation:
   Create a block diagram detailing the UART transmitter module.
