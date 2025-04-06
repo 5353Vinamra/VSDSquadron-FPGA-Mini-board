@@ -110,4 +110,133 @@ The module uses a finite state machine (FSM) with four states:
 
 This UART TX module demonstrates a basic transmit mechanism using FSM logic and bit-shifting. It’s suitable for simulation and understanding UART transmission but needs timing control and synthesis-friendly coding for real-world applications.
 
+## Task which are done here
+  
+2. Design Documentation:
+  
+Create a block diagram detailing the UART transmitter module.
+Develop a circuit diagram illustrating the FPGA's UART TX pin connection to the receiving device.
+---
+
+## UART Transmitter Module – Design Documentation
+
+---
+
+### 📦 Block Diagram: UART Transmitter (8N1)
+
+  This block diagram shows the internal structure of the UART transmitter module.
+
 ```
++-----------------------------+
+|       uart_tx_8n1          |
+|-----------------------------|
+|                             |
+|  +-----------------------+  |
+|  | Finite State Machine  |  |
+|  | (IDLE, START, DATA,   |  |
+|  |  STOP, DONE)          |  |
+|  +-----------------------+  |
+|              |              |
+|              v              |
+|     +----------------+      |
+|     |  Bit Counter   |      |
+|     +----------------+      |
+|              |              |
+|              v              |
+|     +----------------+      |
+|     |  Shift Register|<--txbyte
+|     +----------------+      |
+|              |              |
+|              v              |
+|            [txbit]---------> tx
+|                             |
+|       [txdone]------------> txdone
++-----------------------------+
+```
+
+---
+
+### 🔌 Circuit Diagram: UART TX Connection
+
+This circuit shows the FPGA’s UART TX pin connected to an external device such as a computer or microcontroller.
+
+```
+          +---------------------+
+          |      FPGA Board     |
+          |                     |
+          |  +---------------+  |
+          |  |   uart_tx_8n1 |  |
+          |  +---------------+  |
+          |        |            |
+          |     TX |------------+------------------+
+          |        |            |                  |
+          +--------|------------+                  |
+                   |                               |
+                [3.3V TTL]                      [3.3V TTL]
+               UART TX Line                   UART RX Line
+                   |                               |
+                   |                               |
+              +----+-----+                    +----+-----+
+              |  Receiving| Device (e.g., PC,  |  USB     |
+              |  MCU, or  | USB-UART Bridge)   |  UART    |
+              |  Serial   |                    | Adapter  |
+              +----------+                    +----------+
+```
+
+**Notes:**
+- Ensure both devices operate at the same logic level (e.g., 3.3V).
+- A USB-UART bridge (like FTDI or CH340) is typically used for PC connection.
+- Only the TX line from FPGA and GND are required for one-way communication.
+
+---
+
+### ⚠️ Important Considerations
+
+- **Baud Rate Matching**: Make sure the receiver expects the same baud rate (e.g., 115200).
+- **Voltage Levels**: Match logic levels between FPGA and external device.
+- **Decoupling Capacitors**: Always place near power pins of FPGA or USB chips if applicable.
+
+---
+
+### ✅ Summary
+
+- The block diagram explains how data flows through the UART transmitter FSM.
+- The circuit diagram shows how to physically connect the UART TX pin to a receiving device.
+---
+
+## Tasks which are done here:
+
+3. Implementation:
+
+  Assemble the hardware setup as depicted in the circuit diagram.
+  Synthesize and program the FPGA with the UART transmitter code.
+
+---
+Steps to Transmit the Code
+1. Create the following [files](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/tree/main/Task%203/uart_tx) in a folder under VSDSquadron_FM.
+2. Then, open terminal and through the commands "cd"; "cd VSDSquadron_FM" and "cd uart_transmission" enter the folder "uart_transmission", where you have created the files.
+3. Post this, you may verify that the board is connected through "lsusb" command.
+4. After this, run "make build" and "sudo make flash".
+
+## Tasks which are done here:
+
+4.Testing and Verification:
+  Connect the FPGA to a PC or another UART-compatible device.
+  Use a serial terminal to observe the transmitted data, ensuring accurate data transmission.
+---
+
+Steps of Testing and Verification
+1. Install, and then open PuTTy.
+2. Verify that the correct port is connected through serial communication (COM 7 in my case)
+3. Then, check that a series of "D"s are generated and the RGB LED is blinking (switching between red, green and blue) .
+---
+## Tasks which are done here
+
+Documentation:
+1. Document the block diagram, circuit diagram, code walkthrough, and testing outcomes.
+2. Produce a short video showcasing the UART transmission in operation.
+
+Video
+https://github.com/user-attachments/assets/6a5d2823-9c32-41ec-97bb-ba2b0d38179d
+---
+
