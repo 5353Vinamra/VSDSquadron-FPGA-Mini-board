@@ -237,6 +237,67 @@ Steps of Testing and Verification
 Documentation:
 1. Document the block diagram, circuit diagram, code walkthrough, and testing outcomes.
 2. Produce a short video showcasing the UART transmission in operation.
+---
+
+ This block diagram shows the internal structure of the UART transmitter module.
+
+```
++-----------------------------+
+|       uart_tx_8n1          |
+|-----------------------------|
+|                             |
+|  +-----------------------+  |
+|  | Finite State Machine  |  |
+|  | (IDLE, START, DATA,   |  |
+|  |  STOP, DONE)          |  |
+|  +-----------------------+  |
+|              |              |
+|              v              |
+|     +----------------+      |
+|     |  Bit Counter   |      |
+|     +----------------+      |
+|              |              |
+|              v              |
+|     +----------------+      |
+|     |  Shift Register|<--txbyte
+|     +----------------+      |
+|              |              |
+|              v              |
+|            [txbit]---------> tx
+|                             |
+|       [txdone]------------> txdone
++-----------------------------+
+```
+
+---
+
+Circuit Diagram: UART TX Connection
+
+This circuit shows the FPGA’s UART TX pin connected to an external device such as a computer or microcontroller.
+
+```
+          +---------------------+
+          |      FPGA Board     |
+          |                     |
+          |  +---------------+  |
+          |  |   uart_tx_8n1 |  |
+          |  +---------------+  |
+          |        |            |
+          |     TX |------------+------------------+
+          |        |            |                  |
+          +--------|------------+                  |
+                   |                               |
+                [3.3V TTL]                      [3.3V TTL]
+               UART TX Line                   UART RX Line
+                   |                               |
+                   |                               |
+              +----+-----+                    +----+-----+
+              |  Receiving| Device (e.g., PC,  |  USB     |
+              |  MCU, or  | USB-UART Bridge)   |  UART    |
+              |  Serial   |                    | Adapter  |
+              +----------+                    +----------+
+```
+
 
 Video
 https://github.com/user-attachments/assets/d7746c58-76d4-4cd2-9365-6f46dafff968
