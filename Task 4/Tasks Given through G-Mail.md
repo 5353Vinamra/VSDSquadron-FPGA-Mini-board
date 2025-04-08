@@ -111,3 +111,30 @@ Set up the hardware according to the circuit diagram, ensuring proper sensor int
 Synthesize and load the Verilog code onto the FPGA.
 
 --- 
+
+## 🚀 Uploading the Design to FPGA
+
+1. **Create a New Folder**  
+   Inside your `VSDSquadron_FM` directory, make a subfolder (e.g., `uart_tx_sense`) and place all the necessary Verilog files there.
+
+2. **Navigate to the Project Directory**  
+   Open your terminal and use the following commands to move into the folder:
+   ```bash
+   cd VSDSquadron_FM
+   cd uart_tx_sense
+   ```
+
+3. **Check Board Connection**  
+   Use the command below to confirm your FPGA board is properly connected via USB:
+   ```bash
+   lsusb
+   ```
+
+4. **Build and Flash**  
+   Once you’re in the correct directory and the board is detected, compile and upload the design using:
+   ```bash
+   make build
+   sudo make flash
+   ```
+
+---
