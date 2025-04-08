@@ -217,6 +217,8 @@ Steps to Transmit the Code
 2. Then, open terminal and through the commands "cd"; "cd VSDSquadron_FM" and "cd uart_transmission" enter the folder "uart_transmission", where you have created the files.
 3. Post this, you may verify that the board is connected through "lsusb" command.
 4. After this, run "make build" and "sudo make flash".
+   ![image](https://github.com/user-attachments/assets/dae53f37-7766-4856-8c62-73f191db270b)
+
 
 ## Tasks which are done here:
 
@@ -237,6 +239,6 @@ Documentation:
 2. Produce a short video showcasing the UART transmission in operation.
 
 Video
-https://github.com/user-attachments/assets/6a5d2823-9c32-41ec-97bb-ba2b0d38179d
+https://github.com/user-attachments/assets/d7746c58-76d4-4cd2-9365-6f46dafff968
 ---
 
