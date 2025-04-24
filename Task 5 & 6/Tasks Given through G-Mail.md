@@ -107,3 +107,30 @@ No object or object > 5 cm:
 ## Implementation:
 Set up the hardware as per the circuit diagram.
 Synthesize and upload the Verilog code to the VSDSquadron FPGA Mini.
+
+---
+
+Here is the [code](https://github.com/5353Vinamra/VSDSquadron-FPGA-Mini-board/tree/main/Task%205%20%26%206/Task%205%266%20Necessary%20files)
+Make a folder under VSDSquadron_FM
+
+open terminal there
+run the code 
+```
+make build
+```
+```
+sudo make flash
+```
+
+and transfer it to the FPGA board. now open docklight chose serial communication set the BAUDS to 9600, 1 stop bit, data bits 8 and parity to none.
+
+and you are done
+
+now test your project with an object if it come closer to the ultrasonic sensor then the buzzer will start beeping you can put it in your house or somewhere so wheneven some stranger enter and the movement is detected the buzzer will start beeping alerting you.
+
+here is the video to show how it beeps and works.
+
+
+https://github.com/user-attachments/assets/bb5b70b3-2489-4d6c-8be5-6648979c8523
+
+
